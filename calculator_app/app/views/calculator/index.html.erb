@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  <%= form_tag('/calculate', method: 'post') do %>
+    <label for="num1">Number 1:</label>
+    <%= text_field_tag 'num1' %>
+
+    <label for="num2">Number 2:</label>
+    <%= text_field_tag 'num2' %>
+
+    <label for="operation">Operation:</label>
+    <%= select_tag 'operation', options_for_select(['+', '-', '*', '/','%','sqrt1','sqrt2','tan1','tan2','sin1','sin2','cos1','cos2','log1','log2' ]) %>
+
+    <%= submit_tag 'Calculate' %>
+  <% end %>
+
+  <% if @result %>
+    <p>Result: <%= @result %></p>
+  <% end %>
+</body>
+</html>
